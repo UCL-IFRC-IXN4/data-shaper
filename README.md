@@ -1,5 +1,7 @@
 # data-shaper
 
+Simple formatter for DesInventar raw data
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
