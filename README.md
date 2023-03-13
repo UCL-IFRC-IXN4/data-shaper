@@ -16,6 +16,6 @@ This tool is part of a UCL-IXN Project "Enhanced Assessments of Seasonal Hazards
 ## Installation
 
 ```
-git clone 
+git clone https://github.com/DylanPenney/UCL-IXN-Project.git
 cd src
 ```
