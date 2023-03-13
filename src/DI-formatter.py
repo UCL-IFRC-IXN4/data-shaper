@@ -6,6 +6,12 @@ EMPTIES = [0, None]
 
 
 def clean(raw_line):
+    """
+    Helper function - cleans a line of data from Desinventar
+
+    @param raw_line: line of data from Desinventar
+    @return: cleaned line of data
+    """
     cleaned_line = (
         str(raw_line)
         .strip("\n")
@@ -22,6 +28,12 @@ def clean(raw_line):
 
 
 def copy(list):
+    """
+    Helper function - copies a list of lists
+
+    @param list: list of lists
+    @return: copy of list of lists
+    """
     # only works for lists in form: [[a, [b, c]], [d, [e, f]], ...]
     new_list = []
     for i in list:
@@ -33,12 +45,19 @@ def copy(list):
     return new_list
 
 
+# loop through every file in directory
 directory = os.fsencode(file_path)
 for file in os.listdir(directory):
     filename = os.fsdecode(file)
+
+    # list of columns to be collected
     collected_headers = [["Event", []], ["Date", []], ["Affected", []], ["Deaths", []]]
+
+    # special case for Pacific Islands (PDN).csv file as is a collectino of countries
     if filename == "Pacific Islands (PDN).csv":
         collected_headers.append(["Country", [3]])
+
+    # skip = True if line is incomplete
     skip = False
     country_directory = f"{file_path}/{filename}"
     prev_line = ""
@@ -47,18 +66,22 @@ for file in os.listdir(directory):
         print(f"Opening {country_directory}...")
         print("Cleaning data...")
         with open(country_directory, "r") as file:
+
+            # ignores github config file
             if filename == ".DS_Store":
                 continue
+
+            # create new file to write to
             with open(
                 f"../data/NEW-Desinventar-data/cleaned/{filename}", "w"
             ) as new_file:
                 data = file.readlines()
                 CORRECT_LINE_LENGTH = len(clean(data[1]).split(", "))
+
+                # loops through every line in raw data file
                 for raw_line in data:
-                    # decode line from formatting
                     cleaned_line = clean(raw_line)
                     if cleaned_line == "":
-                        # line is empty
                         continue
 
                     # check is line is complete
@@ -82,19 +105,24 @@ for file in os.listdir(directory):
                                 new_file.write(", ".join(joined_line2))
                                 joined_line2 = []
                     else:
-                        # line is complete
+                        # line is complete - write to cleaned file
                         cleaned_line += "\n"
                         new_file.write(cleaned_line)
                         prev_line = cleaned_line
 
+            # format data to be used in the program
             with open(f"../data/NEW-Desinventar-data/out/{filename}", "w") as out_file:
                 with open(
                     f"../data/NEW-Desinventar-data/cleaned/{filename}", "r"
                 ) as cleaned_file:
                     print("Formatting data...\n")
                     data = cleaned_file.readlines()
+
+                    # seperate the column headers from the data
                     headers, data = data[0], data[1:]
                     headers = headers.split(", ")
+
+                    # find the location of the columns to be collected
                     for header in headers:
                         header = header.replace('"', "")
                         if "Date" in header:
@@ -137,7 +165,6 @@ for file in os.listdir(directory):
                                     break
 
                         # finding deaths and effected location in list
-                        # TODO: this code snippet cahnges 'save' variable
                         if filename != "Pacific Islands (PDN).csv":
                             for coloumn in collected_headers[-2:]:
                                 for index, occurence in enumerate(coloumn[1]):
@@ -150,6 +177,8 @@ for file in os.listdir(directory):
                                     ) - len(
                                         headers
                                     )
+
+                        # special case for Pacific islands (PDN).csv
                         else:
                             for coloumn in collected_headers[-3:-1]:
                                 for index, occurence in enumerate(coloumn[1]):
@@ -163,6 +192,7 @@ for file in os.listdir(directory):
                                         headers
                                     )
 
+                        # write in correct order to out file
                         try:
                             out = []
                             for heading in collected_headers:
