@@ -19,10 +19,10 @@ cd src
 ### Usage:
 
 ### Example:
-See example '''example.py''' for details
-'''
+See example `example.py` for details
+```
 python example.py
-'''
+```
 
 ## License
 
