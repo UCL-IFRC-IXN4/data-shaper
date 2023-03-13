@@ -12,3 +12,10 @@ This tool is part of a UCL-IXN Project "Enhanced Assessments of Seasonal Hazards
 
 - Dylan Penney    [@DylanPenney](https://www.github.com/DylanPenney)
 - Omung Bhasin    [@Omung789](https://www.github.com/Omung789)
+
+## Installation
+
+```
+git clone 
+cd src
+```
