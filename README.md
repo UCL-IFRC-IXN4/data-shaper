@@ -12,6 +12,8 @@ cd src
 ```
 ## Requirements
 
+Gather data using teh data-gatherer package
+
 ## Usage
 
 ### Functions:
