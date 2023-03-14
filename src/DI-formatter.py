@@ -212,7 +212,6 @@ for file in os.listdir(directory):
                             print(f"Output: {out}")
                             print("\n")
                             quit()
-                        # fix error where data is split on two lines
 
     except IsADirectoryError as e:
         print(f"Error: {e}")
