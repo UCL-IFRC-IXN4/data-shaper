@@ -26,7 +26,7 @@ copy(list)
 
 ### Usage:
 
-To use this module run the file ```src/DI-formatter.py`
+To use this module run the file `src/DI-formatter.py`
 
 ## License
 
