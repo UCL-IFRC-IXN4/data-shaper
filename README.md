@@ -38,3 +38,5 @@ To use this module run the file `src/DI-formatter.py`
 
 - Dylan Penney    [@DylanPenney](https://www.github.com/DylanPenney)
 - Omung Bhasin    [@Omung789](https://www.github.com/Omung789)
+- Ryan Lock       [@RyanLockQr](https://www.github.com/RyanLockQr)
+- Hogan Ma        [@HoganMa23](https://www.github.com/HoganMa23)
