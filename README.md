@@ -26,6 +26,8 @@ copy(list)
 
 ### Usage:
 
+To use this module run the file ```src/DI-formatter.py`
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
