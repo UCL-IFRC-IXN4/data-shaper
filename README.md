@@ -18,12 +18,6 @@ cd src
 
 ### Usage:
 
-### Example:
-See example `example.py` for details
-```
-python example.py
-```
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
