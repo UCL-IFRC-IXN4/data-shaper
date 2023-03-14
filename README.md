@@ -16,6 +16,14 @@ cd src
 
 ### Functions:
 
+```
+clean(raw_line)
+    cleans a line of data from Desinventar
+
+copy(list)
+    copies a list of lists
+```
+
 ### Usage:
 
 ## License
