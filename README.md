@@ -15,7 +15,7 @@ The shaped data is stored in "data.csv" in the `./data` directory.
 ## Installation
 
 ```
-git clone https://github.com/DylanPenney/UCL-IXN-Project.git
+git clone https://github.com/UCL-IFRC-IXN4/data-shaper.git
 cd src
 ```
 
