@@ -21,7 +21,7 @@ cd src
 
 ## Requirements
 
-Gather data using teh data-gatherer package
+Gather data using the data-gatherer package
 
 ## Usage
 
